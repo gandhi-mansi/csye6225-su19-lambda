@@ -18,7 +18,8 @@ exports.handler = (event, context, callback) => {
         else {
             if (Object.keys(code).length >= 0) {
                 var flag = false;
-                if(code.Item == undefined){flag = true;}else
+                if(code.Item == undefined){flag = true;}
+                else
                     if(code.Item.timeStamp < (new Date).getTime()){flag = true;}
                 if(flag){
                     var expirationTime = (new Date).getTime() + (60*1000*15);
@@ -47,7 +48,7 @@ exports.handler = (event, context, callback) => {
                                 Message: {
                                     Body: {
                                         Text: {
-                                            Data: "http://"+process.env.domain+"/reset?email="+username+"&token="+id
+                                            Data: "https://"+process.env.domain+"/reset?email="+username+"&token="+id
                                         }
                                     },
                                     Subject: {
